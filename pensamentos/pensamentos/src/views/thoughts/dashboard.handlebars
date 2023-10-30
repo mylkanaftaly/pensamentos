@@ -1,0 +1,30 @@
+<section class="dashboard">
+    <div class="header">
+        <div class="title">
+            <h2>Dashboard</h2>
+        </div>
+
+        <div class="button-create">
+            <a href="/thoughts-create">Criar Pensamento</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="subtitle">
+            <p>Seus pensamentos:</p>
+        </div>
+
+    {{#each thoughts}}
+        <div class="thoughts-list">
+            <p>{{ this.title }}</p>
+            
+            <div class="buttons">
+                <a href="/thoughts/edit/{{ this.id }}">Editar</a>
+                <form action="/thoughts/remove/{{this.id}}" method="POST">
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
